@@ -1,13 +1,12 @@
 var sql = require('./../db')
-var nodemailer = require('nodemailer');
 
 var functions = {
     addToDb :  async function(title,subtitle,body,image){
         return new Promise(async function(resolve, reject) {
             dateNow = new Date();
-            var statement = `insert into posts (title,subtitle,body,image, submitDate) values('${title}','${subtitle}','${body}','${image}','${dateNow}')`;
+            var statement = `insert into posts (title,subtitle,body,image, submitDate) values(?,?,?,?,?)`;
 
-            var row = await sql.run(statement, function(err) {
+            var row = await sql.run(statement,[title,subtitle,body,image,dateNow], function(err) {
                 if (err) {
                     console.log(err);
                 }
@@ -60,35 +59,8 @@ var functions = {
                 }
             });
         });
-    },
-
-    sendEmail: function( body,email) {
-		return new Promise(async function(resolve, reject) {
-			var transporter = nodemailer.createTransport({
-				service: 'gmail',
-				auth: {
-					user: 'savoymailer@gmail.com',
-					pass: 'Mail4321'
-				}
-			});
-			var mailOptions = {
-				from: 'email',
-				to: 'njstrick@iu.edu',
-				subject: 'You recieved mail from your website',
-                text: ` ${body} 
-                
-You can reply to this email by emailing: ${email} `
-			};
-
-			transporter.sendMail(mailOptions, function(error, info) {
-				if (error) {
-					reject(error);
-				} else {
-					resolve('Success');
-				}
-			});
-		});
-	}
+    }
+    
 }
 
 module.exports = functions;
