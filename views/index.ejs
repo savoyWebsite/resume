@@ -416,8 +416,8 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 post-body">
-                        <div class="post">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 post-body" style="height:100%">
+                        <div class="post" style="height:600px">
                             <div class="post-img-content">
                                 <img src="<%= data[0].image %>" style="max-width:100%;max-height:100%" />
                                 <span class="post-title"><b><%= data[0].title %></b></span>
@@ -437,8 +437,8 @@
                             </div>
                         </div>
                     </div>
-                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 post-body">
-                        <div class="post">
+                   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 post-body">
+                        <div class="post" style="height:600px">
                             <div class="post-img-content">
                                 <img src="<%= data[1].image %>" class="img-responsive" style="max-width:100%;max-height:100%" />
                                 <span class="post-title"><b><%= data[1].title %></b></span>
@@ -454,6 +454,27 @@
                                 <div>
                                     <br>
                                     <a href="posts/<%= data[1].id %>"><button type="button" class="btn btn-primary single-contact-btn">Read More</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 post-body">
+                        <div class="post" style="height:600px">
+                            <div class="post-img-content" >
+                                <img src="<%= data[2].image %>" class="img-responsive" style="max-width:100%;max-height:100%" />
+                                <span class="post-title"><b><%= data[2].title %></b></span>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                    By <b>April Savoy</b> |
+                                    <time datetime="2014-01-20"><%= data[2].submitDate %></time>
+                                </div>
+                                <div>
+                                    <p><%= data[2].subtitle %></p>
+                                </div>
+                                <div >
+                                    <br>
+                                    <a href="posts/<%= data[2].id %>"><button type="button" class="btn btn-primary single-contact-btn">Read More</button></a>
                                 </div>
                             </div>
                         </div>
@@ -855,7 +876,7 @@
                 <div class="row">
                    
                     <!--/.col-->
-                    <div class="col-md-offset-1 col-md-5 col-sm-12" >
+                    <div class=" col-md-12 col-sm-12" style="text-align:center" >
                         <div class="single-contact-box">
                             <div class="contact-adress">
                                 <div class="contact-add-head">
@@ -878,7 +899,7 @@
                                 </div>
                             </div>
                             <!--/.contact-adress-->
-                            <div class="hm-foot-icon">
+                            <div class="hm-foot-icon" style="display:inline-block;">
                                 <ul>
                                     <li><a href="savoyresume.pdf" target="_blank"><i class="ai ai-cv"></i></a></li>
                                     <!--/li-->
